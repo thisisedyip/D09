@@ -9,12 +9,13 @@
 
 ###Think Python:
 ####[Chapter 12: Tuples][ch12]
-+ HW09_ex12_01.py
-+ HW09_ex12_03.py
++ HW09_ch12_ex00.py
++ HW09_ch12_ex01.py
 + **Bonus**:
-    + HW09_ex12_04.py
-    + HW09_ex12_05.py
-    + HW09_ex12_06.py
+    + HW09_ch12_ex02.py
+    + HW09_ex12_ex03.py
+    + HW09_ex12_ex04.py
+
 
 ###Google for Education:
 ####Summary Exercise
