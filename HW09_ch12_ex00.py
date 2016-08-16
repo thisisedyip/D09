@@ -13,7 +13,13 @@
 # Imports
 
 # Body
-
+def sumall(*args):
+	#create list of arguments
+	x = []
+	for number in args:
+		x.append(number)
+	sumall = sum(x)
+	return sumall
 
 ##############################################################################
 def main():   # DO NOT CHANGE BELOW

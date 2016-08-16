@@ -12,7 +12,15 @@
 
 # Body
 def most_frequent(s):
-    ...
+    lower_s = s.lower() #normalize to make everything lowercase first
+    histogram = {}
+    for letter in lower_s:
+        histogram[letter] = histogram.get(letter, 0) + 1
+    lst = sorted(histogram, key = histogram.__getitem__, reverse = True)
+    for char in lst:
+        if char.isalpha(): #check and print only if it is a letter
+            print("\t"+char)
+    
 
 
 ###############################################################################
@@ -32,6 +40,8 @@ def main():   # DO NOT CHANGE BELOW
                   "officia deserunt mollit anim id est laborum.")
     print("\nExample 4:")
     most_frequent("Squdgy fez, blank jimp crwth vox!")
+    print("\nExample 4:")
+    most_frequent("aaaaAAAAbbbbBBBCCCccDDDDddddddddd")
 
 if __name__ == '__main__':
     main()

@@ -38,6 +38,37 @@ print_words() and print_top().
 """
 
 import sys
+import itertools
+
+def helper():
+    words_list = []
+
+    with open(sys.argv[2], 'r') as lines:
+        for words in lines:
+            words_list.append(words.split())
+        #create flat list from nested list of words
+        flat_words_list = list(itertools.chain(*words_list))
+        #lower case everything
+        lower_words_list = [x.lower() for x in flat_words_list]
+        return lower_words_list
+
+def print_words(lower_words_list):
+    words_dict = {}
+    for each in lower_words_list:
+        words_dict[each] = words_dict.get(each, 0) + 1
+    for word in words_dict:
+        print(word, words_dict[word])
+
+def print_top(lower_words_list):
+    words_dict = {}
+    for each in lower_words_list:
+        words_dict[each] = words_dict.get(each, 0) + 1
+    #sort and get top 5 values
+    lst = sorted(words_dict, key = words_dict.get, reverse = True)[:5]
+    for word in lst:
+        print(word, words_dict[word])
+
+
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
@@ -58,9 +89,9 @@ def main():
     option = sys.argv[1]
     filename = sys.argv[2]
     if option == '--count':
-        print_words(filename)
+        print_words(helper())
     elif option == '--topcount':
-        print_top(filename)
+        print_top(helper())
     else:
         print('unknown option: ' + option)
         sys.exit(1)
